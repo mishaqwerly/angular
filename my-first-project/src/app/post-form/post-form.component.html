@@ -1,0 +1,19 @@
+<div class="box">
+  <div>
+    <input type="text"
+           placeholder="Title..."
+           [(ngModel)]="title"
+           #focusTitle
+    >
+  </div>
+  <div>
+    <input type="text" placeholder="Text..." [(ngModel)]="text">
+  </div>
+  <button class="btn btn-primary" (click)="addNewPost()">Go</button>
+  <button
+    class="btn btn-success"
+    (click)="focusInput()"
+
+  >Focus Title</button>
+</div>
+

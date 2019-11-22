@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Главный компонент</h1>
+  <app-post-form
+    (onAddNewPostToServerData)="addPost($event)"
+  ></app-post-form>
+  <app-post
+    *ngFor="let post of dataPostObj"
+    [onePost]="post"
+  >
+    <p *ngIf="post.text.length > 5; else shortText">long text</p>
+    <ng-template #shortText>short text</ng-template>
+  </app-post>
+</div>
+
+
+
