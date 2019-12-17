@@ -1,15 +1,103 @@
 <div class="container">
-  <h1>Главный компонент</h1>
-  <app-post-form
-    (onAddNewPostToServerData)="addPost($event)"
-  ></app-post-form>
-  <app-post
-    *ngFor="let post of dataPostObj"
-    [onePost]="post"
-  >
-    <p *ngIf="post.text.length > 5; else shortText">long text</p>
-    <ng-template #shortText>short text</ng-template>
-  </app-post>
+  <div class="section">
+
+
+    <!--<div class="wrap">
+      <button class="btn btn-success m-3" (click)="toggleBlock()"> Toggle section </button>
+      <div *ngIf="showBoxOne"
+           class="animate-wrapper">
+        <div [@boxOneState]="boxOneStateSatus"
+             (@boxOneState.start)="funShow($event)"
+             (@boxOneState.done)="funDone()">
+
+          <app-animate-box-one ></app-animate-box-one>
+        </div>
+      </div>
+    </div>-->
+
+    <div class="wrap d-flex justify-content-center">
+      <div class="border-wrapper" [class.large-border-wrapper]="sizeClass">
+        <div class="animate-box" [@popOverState]="stateName">
+          <app-animate-box-one *ngIf="blockName == 1; else BigBlock"></app-animate-box-one>
+          <ng-template #BigBlock>
+            <app-animate-box-two></app-animate-box-two>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex">
+      <button (click)="toggleBlock(1)">Toggle small</button>
+      <button (click)="toggleBlock(2)">Toggle large</button>
+    </div>
+
+    <div class="wrap">
+      <app-http-test></app-http-test>
+    </div>
+    <div class="wrap">
+      <app-angular-form-test></app-angular-form-test>
+    </div>
+
+    <div class="wrap">
+      <button mat-button>Click me!</button>
+      <app-strim-rx-js-test></app-strim-rx-js-test>
+    </div>
+
+    <div class="wrap">
+      <h1>Сервисы</h1>
+      <app-my-sevices></app-my-sevices>
+
+      <div class="d-flex">
+        <div class="m-3">
+          <h3>localVal</h3>
+          <div class=" mb-2">counter : {{localVal.counter}}</div>
+          <button class="btn btn-success mr-2" (click)="localVal.increase()">+</button>
+          <button class="btn btn-danger" (click)="localVal.decrease()">-</button>
+        </div>
+        <div class="m-3">
+          <h3>GlobalVal</h3>
+          <div class=" mb-2">counter : {{GlobalVal.counter}}</div>
+          <button class="btn btn-success mr-2" (click)="GlobalVal.increase()">+</button>
+          <button class="btn btn-danger" (click)="GlobalVal.decrease()">-</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="wrap">
+      <app-pipes-test></app-pipes-test>
+    </div>
+
+    <div class="wrap">
+      <h1>Promise pipe</h1>
+      <p>show after 3 sec</p>
+      <div class="box">Promise text ... {{myPromise | async}}</div>
+    </div>
+
+    <div class="wrap">
+      <app-post-form (onAddNewPostToServerData)="addPost($event)"></app-post-form>
+      <app-post
+        *ngFor="let post of dataPostObj"
+        [onePost]="post"
+        (onRemove)="deletePost($event)">
+        <div #info>
+          <p *ngIf="post.title.length > 2; else shortText">Long text ++</p>
+          <ng-template #shortText><p>short text --</p></ng-template>
+        </div>
+      </app-post>
+    </div>
+
+
+
+
+  </div>
+
+
+
+
+
+
+
 </div>
 
 

@@ -1,3 +1,31 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$my-first-project-primary: mat-palette($mat-indigo);
+$my-first-project-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$my-first-project-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$my-first-project-theme: mat-light-theme($my-first-project-primary, $my-first-project-accent, $my-first-project-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($my-first-project-theme);
+
 /* You can add global styles to this file, and also import other style files */
 body {
   margin: 0;
@@ -12,6 +40,15 @@ body {
   margin: 0;
 }
 
+.btn {
+  margin: 10px;
+}
+
+h1  {
+  background-color: #FBDF44;
+  padding: 5px;
+}
+
 .box {
   width: 100%;
   padding: 20px;
@@ -21,8 +58,13 @@ body {
 }
 
 .r {
-  border: 3px solid #d09699;
+  border: 3px solid #ec413b;
 }
+
+.b {
+  border: 3px solid #000000;
+}
+
 
 img {
   width: 100px;
@@ -35,3 +77,62 @@ img {
 .blue {
   background-color: blue;
 }
+
+.section {
+  min-height: 400px;
+}
+
+.wrap {
+  background-color: #717168;
+  padding: 30px;
+  margin: 40px;
+}
+
+
+.xz {
+  background-color: #2b774c;
+}
+
+.mat-progress-spinner {
+  width: 40px;
+  height: 40px;
+  svg {
+    width: 40px;
+    height: 40px;
+    circle {
+      stroke-width: 5%;
+    }
+  }
+}
+
+.input-row {
+  border: 1px dashed #d8d8d8;
+  margin: 10px;
+  padding: 5px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.border-wrapper {
+  border: 2px solid red;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.6s ease;
+}
+
+.large-border-wrapper {
+  width: 500px;
+  height: 500px;
+}
+
+.animate-box {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+

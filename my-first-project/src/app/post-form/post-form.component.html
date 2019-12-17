@@ -1,9 +1,11 @@
 <div class="box">
   <div>
+    <h2>Header</h2>
     <input type="text"
            placeholder="Title..."
            [(ngModel)]="title"
-           #focusTitle
+           #focusImput
+
     >
   </div>
   <div>
@@ -12,8 +14,7 @@
   <button class="btn btn-primary" (click)="addNewPost()">Go</button>
   <button
     class="btn btn-success"
-    (click)="focusInput()"
-
+    (click)="focusImputFunct()"
   >Focus Title</button>
 </div>
 

@@ -10,8 +10,9 @@ import {PostFromServer} from '../app.component';
 export class PostFormComponent implements OnInit {
 
   @Output() onAddNewPostToServerData: EventEmitter<PostFromServer> = new EventEmitter<PostFromServer>()
+  @ViewChild('focusImput', {static: false}) focusImput: ElementRef
 
-  @ViewChild('focusTitle', {static: false}) myInput: ElementRef
+
 
   title = ''
   text = ''
@@ -32,9 +33,8 @@ export class PostFormComponent implements OnInit {
       this.text = ''
     }
   }
-
-  focusInput() {
-    this.myInput.nativeElement.focus()
+  focusImputFunct() {
+    this.focusImput.nativeElement.focus()
   }
 
 }
